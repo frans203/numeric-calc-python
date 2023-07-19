@@ -1,0 +1,9 @@
+y= []
+for i in range(10):
+    y.append(i ** 2)
+print(y)
+x = [item ** 2 for item in range(10)]
+print(x)
+z = map(lambda x: x ** 2, range(10))
+print(list(z))
+# Normalmente, o número de erros que um programador comete é por linha de código escrita,
