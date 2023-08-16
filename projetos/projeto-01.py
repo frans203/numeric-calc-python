@@ -82,11 +82,11 @@ def f(e):
 
 #parte dois da equacao
 def g(e):
-    return np.sqrt(2*m*(e-v))/h
+    return np.sqrt(2*m*(abs(e-v)))/h
 
 #equacao inteira
 def t(e):
-    return f(e) + g(e)
+    return (np.sqrt(2*m*e)/h)*cotang(auxCotangTun(e)) + np.sqrt(2*m*(abs(e-v)))/h
 
 xLins = np.linspace(4 /10 ** 20, 20000 /10 ** 20)
 plt.xlabel('e')
