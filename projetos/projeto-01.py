@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.optimize import bisect 
+from scipy.optimize import bisect, newton
 from prettytable import PrettyTable as pt
 
 
@@ -64,7 +64,7 @@ def bissecao(f,a,b, tol, N):
 
 m = 9 / 10**31 #kg
 h = 6.6 / 10 ** 34 #jaule X segundo
-a = 1 / 10**10 #m/s^2
+a = 1 / 10**10 #m
 v = 1.1215 / 10 **19 #joule
 
 #equacao auxiliar da cotang
@@ -88,7 +88,7 @@ def g(e):
 def t(e):
     return (np.sqrt(2*m*e)/h)*cotang(auxCotangTun(e)) + np.sqrt(2*m*(abs(e-v)))/h
 
-xLins = np.linspace(4 /10 ** 20, 20000 /10 ** 20)
+xLins = np.linspace(4 /10 ** 20, 4 /10 ** 16)
 plt.xlabel('e')
 plt.ylabel('t(e)')
 plt.plot(xLins, t(xLins), color='#800080', label='Schrodinger')
@@ -105,4 +105,3 @@ x1 = bisect(t, 1.25 / 10 ** 16, 1.35 / 10 ** 16)
 xm = bissecao(t , 1.25 / 10 ** 16, 1.35 / 10 ** 16, 1/10**20, 30) 
 print(xm)
 print(x1)
-
